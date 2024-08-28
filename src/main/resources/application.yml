@@ -1,0 +1,51 @@
+spring:
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:
+    username:
+    password:
+#
+#
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    suffix: .html
+#
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id:
+            client-secret:
+            scope:
+              - profile
+              - email
+
+          naver:
+            client-id:
+            client-secret:
+            scope:
+              - name
+              - email
+            client-name:
+            authorization-grant-type:
+            redirect-uri:
+
+
+        provider: # 네이버, 카카오 등은 기본 프로바이더가 아니기 때문에 따로 등록해줘야함. 기본 프로바이더 -> 구글, 페이스북, 트위터
+          naver:
+            authorization-uri:
+            token-uri:
+            user-info-uri:
+            user-name-attribute:  # 회원 정보를 json으로 받는데 response라는 키값으로 네이버가 리턴해줌
+  jwt:
+    secret:
